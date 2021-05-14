@@ -87,14 +87,15 @@ def setup(
 
     yield namedtuple(
         'setup', 
-        'mockToken vault yearnRegistry wrapper guestlist namedAccounts'
+        'mockToken vault yearnRegistry wrapper guestlist namedAccounts yield_source'
     )(
         mockToken, 
         vault,
         yearnRegistry, 
         wrapper, 
         guestlist, 
-        namedAccounts
+        namedAccounts,
+        yield_source
     )
 
 @pytest.fixture(autouse=True)
@@ -105,3 +106,31 @@ def test_check(setup):
     print("HELLO WORLD")
     assert 1 == 1
     pass
+
+def test_supplyTo(setup):
+    randomUser1 = setup.namedAccounts['randomUser1']
+    randomUser2 = setup.namedAccounts['randomUser2']
+    yieldSourceAddress = setup.yield_source.address
+
+    token = setup.yield_source.depositToken()
+    print(token)
+    assert token == setup.mockToken.address
+
+    before_balance = setup.yield_source.balanceOfToken(randomUser1.address)
+    print(before_balance.events)
+    assert before_balance.return_value == 0
+
+    # Approve wrapper as spender of mockToken for users
+    setup.mockToken.approve(yieldSourceAddress, 100e18, {"from": randomUser1})
+    setup.mockToken.approve(yieldSourceAddress, 100e18, {"from": randomUser2})
+
+    setup.yield_source.supplyTokenTo(1e18, randomUser1, {"from": randomUser1})
+
+    after_balance = setup.yield_source.balanceOfToken(randomUser1.address)
+    print(after_balance)
+    assert after_balance.return_value == 1e18
+
+    # tokens should be transfered to badger vault, 
+    # and yield source contract must have wrapper balance
+    assert setup.wrapper.totalWrapperBalance(yieldSourceAddress) == 1e18
+
