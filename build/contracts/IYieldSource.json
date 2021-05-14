@@ -77,15 +77,15 @@
     "absolutePath": "contracts/interfaces/IYieldSource.sol",
     "exportedSymbols": {
       "IYieldSource": [
-        719
+        2850
       ]
     },
-    "id": 720,
+    "id": 2851,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 687,
+        "id": 2818,
         "literals": [
           "solidity",
           ">=",
@@ -104,15 +104,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 688,
+          "id": 2819,
           "nodeType": "StructuredDocumentation",
           "src": "66:211:3",
           "text": "@title Defines the functions used to interact with a yield source.  The Prize Pool inherits this contract.\n @notice Prize Pools subclasses need to implement this interface so that yield can be generated."
         },
         "fullyImplemented": false,
-        "id": 719,
+        "id": 2850,
         "linearizedBaseContracts": [
-          719
+          2850
         ],
         "name": "IYieldSource",
         "nodeType": "ContractDefinition",
@@ -120,13 +120,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 689,
+              "id": 2820,
               "nodeType": "StructuredDocumentation",
               "src": "305:96:3",
               "text": "@notice Returns the ERC20 asset token used for deposits.\n @return The ERC20 asset token"
             },
             "functionSelector": "c89039c5",
-            "id": 694,
+            "id": 2825,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -134,23 +134,23 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 690,
+              "id": 2821,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "425:2:3"
             },
             "returnParameters": {
-              "id": 693,
+              "id": 2824,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 692,
+                  "id": 2823,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 694,
+                  "scope": 2825,
                   "src": "451:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -159,7 +159,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 691,
+                    "id": 2822,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "451:7:3",
@@ -175,7 +175,7 @@
               ],
               "src": "450:9:3"
             },
-            "scope": 719,
+            "scope": 2850,
             "src": "404:56:3",
             "stateMutability": "view",
             "virtual": false,
@@ -184,13 +184,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 695,
+              "id": 2826,
               "nodeType": "StructuredDocumentation",
               "src": "464:151:3",
               "text": "@notice Returns the total balance (in asset tokens).  This includes the deposits and interest.\n @return The underlying balance of asset tokens"
             },
             "functionSelector": "b99152d0",
-            "id": 702,
+            "id": 2833,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -198,17 +198,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 698,
+              "id": 2829,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 697,
+                  "id": 2828,
                   "mutability": "mutable",
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 702,
+                  "scope": 2833,
                   "src": "642:12:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -217,7 +217,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 696,
+                    "id": 2827,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "642:7:3",
@@ -234,17 +234,17 @@
               "src": "641:14:3"
             },
             "returnParameters": {
-              "id": 701,
+              "id": 2832,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 700,
+                  "id": 2831,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 702,
+                  "scope": 2833,
                   "src": "674:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -253,7 +253,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 699,
+                    "id": 2830,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "674:7:3",
@@ -268,7 +268,7 @@
               ],
               "src": "673:9:3"
             },
-            "scope": 719,
+            "scope": 2850,
             "src": "618:65:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -277,13 +277,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 703,
+              "id": 2834,
               "nodeType": "StructuredDocumentation",
               "src": "687:245:3",
               "text": "@notice Supplies tokens to the yield source.  Allows assets to be supplied on other user's behalf using the `to` param.\n @param amount The amount of `token()` to be supplied\n @param to The user whose balance will receive the tokens"
             },
             "functionSelector": "87a6eeef",
-            "id": 710,
+            "id": 2841,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -291,17 +291,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 708,
+              "id": 2839,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 705,
+                  "id": 2836,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 710,
+                  "scope": 2841,
                   "src": "958:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -310,7 +310,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 704,
+                    "id": 2835,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "958:7:3",
@@ -324,12 +324,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 707,
+                  "id": 2838,
                   "mutability": "mutable",
                   "name": "to",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 710,
+                  "scope": 2841,
                   "src": "974:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -338,7 +338,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 706,
+                    "id": 2837,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "974:7:3",
@@ -355,12 +355,12 @@
               "src": "957:28:3"
             },
             "returnParameters": {
-              "id": 709,
+              "id": 2840,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "994:0:3"
             },
-            "scope": 719,
+            "scope": 2850,
             "src": "935:60:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -369,13 +369,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 711,
+              "id": 2842,
               "nodeType": "StructuredDocumentation",
               "src": "999:204:3",
               "text": "@notice Redeems tokens from the yield source.\n @param amount The amount of `token()` to withdraw.  Denominated in `token()` as above.\n @return The actual amount of tokens that were redeemed."
             },
             "functionSelector": "013054c2",
-            "id": 718,
+            "id": 2849,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -383,17 +383,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 714,
+              "id": 2845,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 713,
+                  "id": 2844,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 718,
+                  "scope": 2849,
                   "src": "1227:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -402,7 +402,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 712,
+                    "id": 2843,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1227:7:3",
@@ -418,17 +418,17 @@
               "src": "1226:16:3"
             },
             "returnParameters": {
-              "id": 717,
+              "id": 2848,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 716,
+                  "id": 2847,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 718,
+                  "scope": 2849,
                   "src": "1261:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -437,7 +437,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 715,
+                    "id": 2846,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1261:7:3",
@@ -452,14 +452,14 @@
               ],
               "src": "1260:9:3"
             },
-            "scope": 719,
+            "scope": 2850,
             "src": "1206:64:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 720,
+        "scope": 2851,
         "src": "277:996:3"
       }
     ],

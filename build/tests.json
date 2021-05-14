@@ -1,7 +1,27 @@
 {
   "contracts": {
-    "WBTCVaultYieldSource": "98163babdf92c19a1cb0b50289647ac5846f9d8e"
+    "MockToken": "46877d464e7bbff7978705cadf785a96471ad54a",
+    "SimpleWrapperGatedUpgradeable": "4400691590c47f6b7f9260f3eba1ffeecce37a37",
+    "VipCappedGuestListWrapperUpgradeable": "f6a3fd5706820393f59b502cacdda05e6128b65e",
+    "WBTCVaultYieldSource": "98163babdf92c19a1cb0b50289647ac5846f9d8e",
+    "YearnRegistry": "c35a4b2323dd0127866f2589485105da54312bb3",
+    "YearnTokenVault": "ce82e487f64e35660c1c1d2e844edb14c6b54460"
   },
-  "tests": {},
+  "tests": {
+    "tests/test_badger_wbtc_flow.py": {
+      "coverage": false,
+      "isolated": [
+        "MockToken",
+        "SimpleWrapperGatedUpgradeable",
+        "VipCappedGuestListWrapperUpgradeable",
+        "WBTCVaultYieldSource",
+        "YearnRegistry",
+        "YearnTokenVault"
+      ],
+      "results": ".",
+      "sha1": "f2b3fbf82bf6a9778e287e3603b02b97c608230d",
+      "txhash": []
+    }
+  },
   "tx": {}
 }
