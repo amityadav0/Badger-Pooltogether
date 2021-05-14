@@ -1,28 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.7.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+import "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "../../node_modules/@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
 interface ISimpleWrapperGatedUpgradeable {
     // @dev Get estimated value of vault position for an account
-    function totalVaultBalance(address account) public view returns (uint256 balance);
+    function totalVaultBalance(address account) external view  returns (uint256);
 
     /// @dev Forward totalAssets from underlying vault
-    function totalAssets() public view returns (uint256 assets);
+    function totalAssets() external view returns (uint256);
 
     function shareValue(uint256 numShares) external view returns (uint256);
 
     /// @dev Forward pricePerShare of underlying vault
-    function pricePerShare() public view returns (uint256);
+    function pricePerShare() external view returns (uint256);
 
-    function totalWrapperBalance(address account) public view returns (uint256 balance);
+    function totalWrapperBalance(address account) external view returns (uint256);
 
     /// @dev Deposit specified amount of token in wrapper
     /// @dev A merkle proof can be supplied to verify inclusion in merkle guest list if this functionality is active
-    function deposit(uint256 amount, bytes32[] calldata merkleProof) public returns (uint256);
+    function deposit(uint256 amount, bytes32[] calldata merkleProof) external returns (uint256);
 
-    function withdraw(uint256 shares) public returns (uint256 withdrawn);
+    function withdraw(uint256 shares) external returns (uint256 withdrawn);
 
     /**
      * @notice Triggers an approval from owner to spends
