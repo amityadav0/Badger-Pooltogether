@@ -10,10 +10,8 @@ import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upg
 import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
 
-/// @title Yield source for a PoolTogether prize pool that generates yield by depositing into Yearn Vaults.
+/// @title Yield source for a PoolTogether prize pool that generates yield by depositing into Badger Vaults.
 /// @dev This contract inherits from the ERC20 implementation to keep track of users deposits
-/// @dev This is a generic contract that will work with main Yearn Vaults. Vaults using v0.3.2 to v0.3.4 included
-/// @dev are not compatible, as they had dips in shareValue due to a small miscalculation
 /// @notice Yield Source Prize Pools subclasses need to implement this interface so that yield can be generated.
 contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeable {
     using SafeERC20Upgradeable for IERC20Upgradeable;

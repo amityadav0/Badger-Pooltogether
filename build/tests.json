@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "YearnV2YieldSource": "3e5bd274167a124c628efd91a9a2636675dcffb5"
+    "WBTCVaultYieldSource": "98163babdf92c19a1cb0b50289647ac5846f9d8e"
   },
   "tests": {},
   "tx": {}
