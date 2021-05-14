@@ -15,7 +15,7 @@ import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC2
 /// @dev This is a generic contract that will work with main Yearn Vaults. Vaults using v0.3.2 to v0.3.4 included
 /// @dev are not compatible, as they had dips in shareValue due to a small miscalculation
 /// @notice Yield Source Prize Pools subclasses need to implement this interface so that yield can be generated.
-contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeable {
+contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeable {
     using SafeERC20Upgradeable for IERC20Upgradeable;
     using SafeMathUpgradeable for uint;
     
@@ -23,24 +23,11 @@ contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeabl
     ISimpleWrapperGatedUpgradeable public vault;
     /// @dev Deposit Token contract address
     IwBTC internal token;
-    /// @dev Max % of losses that the Yield Source will accept from the Vault in BPS
-    uint256 public maxLosses = 0; // 100% would be 10_000
-
-    /// @notice Emitted when asset tokens are supplied to sponsor the yield source
-    event Sponsored(
-        address indexed user,
-        uint256 amount
-    );
     
     /// @notice Emitted when the yield source is initialized
     event YearnSimpleWrapperGatedUpgradeable(
         ISimpleWrapperGatedUpgradeable vault,
         IwBTC token
-    );
-
-    /// @notice Emitted when the Max Losses accepted when withdrawing from yVault are changed
-    event MaxLossesChanged(
-        uint256 newMaxLosses
     );
 
     /// @notice Emitted when asset tokens are supplied to the yield source
@@ -98,7 +85,7 @@ contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeabl
 
     /// @notice Supplies asset tokens to the yield source
     /// @dev Shares corresponding to the number of tokens supplied are mint to the user's balance
-    /// @dev Asset tokens are supplied to the yield source, then deposited into Aave
+    /// @dev Asset tokens are supplied to the yield source, then deposited into Badger
     /// @param _amount The amount of asset tokens to be supplied
     /// @param to The user whose balance will receive the tokens
     function supplyTokenTo(uint256 _amount, address to) override external {
@@ -116,7 +103,7 @@ contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeabl
 
     /// @notice Redeems asset tokens from the yield source
     /// @dev Shares corresponding to the number of tokens withdrawn are burnt from the user's balance
-    /// @dev Asset tokens are withdrawn from Yearn's Vault, then transferred from the yield source to the user's wallet
+    /// @dev Asset tokens are withdrawn from Badger's Vault, then transferred from the yield source to the user's wallet
     /// @param amount The amount of asset tokens to be redeemed
     /// @return The actual amount of tokens that were redeemed
     function redeemToken(uint256 amount) external override returns (uint256) {
@@ -134,7 +121,7 @@ contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeabl
 
     // ************************ INTERNAL FUNCTIONS ************************
 
-    /// @notice Deposits full balance (or max available deposit) into Yearn's Vault
+    /// @notice Deposits full balance (or max available deposit) into Badger's Vault
     /// @dev if deposit limit is reached, tokens will remain in the Yield Source and
     /// @dev they will be queued for retries in subsequent deposits
     /// @return The actual amount of shares that were received for the deposited tokens
@@ -165,7 +152,7 @@ contract YearnV2YieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradeabl
         return previousBalance.sub(currentBalance);
     }
 
-    /// @notice Returns the amount of shares of yearn's vault that the Yield Source holds
+    /// @notice Returns the amount of shares of Badger's vault that the Yield Source holds
     /// @return Balance of vault's shares holded by Yield Source
     function _balanceOfYShares() internal view returns (uint256) {
         return vault.totalWrapperBalance(address(this));
