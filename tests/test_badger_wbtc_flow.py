@@ -126,6 +126,7 @@ def test_supplyTo(setup):
 
     setup.yield_source.supplyTokenTo(1e18, randomUser1, {"from": randomUser1})
 
+    # RandomeUser1 should have balance from yield_source contract
     after_balance = setup.yield_source.balanceOfToken(randomUser1.address)
     print(after_balance)
     assert after_balance.return_value == 1e18
@@ -133,4 +134,56 @@ def test_supplyTo(setup):
     # tokens should be transfered to badger vault, 
     # and yield source contract must have wrapper balance
     assert setup.wrapper.totalWrapperBalance(yieldSourceAddress) == 1e18
+
+def test_supplyTo_Redeem(setup):
+    randomUser1 = setup.namedAccounts['randomUser1']
+    randomUser2 = setup.namedAccounts['randomUser2']
+    yieldSourceAddress = setup.yield_source.address
+
+    # Approve wrapper as spender of mockToken for users
+    setup.mockToken.approve(yieldSourceAddress, 100e18, {"from": randomUser1})
+    setup.mockToken.approve(yieldSourceAddress, 100e18, {"from": randomUser2})
+
+    setup.yield_source.supplyTokenTo(1e18, randomUser1, {"from": randomUser1})
+
+    chain.sleep(86400)
+    chain.mine(1)
+
+    setup.yield_source.supplyTokenTo(5e18, randomUser2, {"from": randomUser2})
+
+
+    chain.sleep(86400)
+    chain.mine(1)
+
+    val = setup.wrapper.pricePerShare()
+    print(val)
+
+    # RandomeUser1 should have balance from yield_source contract
+    after_balance = setup.yield_source.balanceOfToken(randomUser1.address)
+    print(after_balance)
+    assert after_balance.return_value == 1e18
+
+    # RandomeUser2 should have balance from yield_source contract
+    balance = setup.yield_source.balanceOfToken(randomUser2.address)
+    assert balance.return_value == 5e18
+
+    # tokens should be transfered to badger vault, 
+    # and yield source contract must have wrapper balance
+    assert setup.wrapper.totalWrapperBalance(yieldSourceAddress) == 6e18
+
+    # Redeem tokens for message sender - Random User
+    assert setup.yield_source.balanceOfToken(randomUser1.address).return_value == 1e18
+    setup.yield_source.redeemToken(1e18, {"from": randomUser1})
+
+    assert setup.yield_source.balanceOfToken(randomUser1.address).return_value == 0
+
+    chain.sleep(86400)
+    chain.mine(1)
+    
+    # Redeem tokens for message sender - Random User 2
+    setup.yield_source.redeemToken(3e18, {"from": randomUser2})
+
+    assert setup.yield_source.balanceOfToken(randomUser2.address).return_value == 2e18
+
+    assert setup.wrapper.totalWrapperBalance(yieldSourceAddress) == 2e18
 

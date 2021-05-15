@@ -136,7 +136,6 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
 
     /// @notice Withdraws requested amount from Vault
     /// @dev Vault withdrawal function required amount of shares to be redeemed
-    /// @dev Losses are accepted by the Yield Source to avoid funds being locked in the Vault if something happened
     /// @param amount amount of asset tokens to be redeemed
     /// @return Tokens received from the Vault
     function _withdrawFromVault(uint amount) internal returns (uint256) {
@@ -147,7 +146,7 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
 
         uint256 currentBalance = token.balanceOf(address(this));
 
-        return previousBalance.sub(currentBalance);
+        return currentBalance.sub(previousBalance);
     }
 
     /// @notice Returns the amount of shares of Badger's vault that the Yield Source holds
@@ -186,7 +185,7 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
 
     // ************************ CALCS ************************
 
-    /// @notice Converter from deposit token to yShares (yearn vault's shares)
+    /// @notice Converter from deposit token to yShares (badger vault's shares)
     /// @param tokens Amount of tokens to be converted
     /// @return yShares to redeem to receive `tokens` deposit token
     function _tokenToYShares(uint256 tokens) internal view returns (uint256) {
@@ -223,13 +222,5 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
             uint256 _totalTokens = _totalAssetsInToken();
             tokens = shares.mul(_totalTokens).div(totalSupply());
         }
-    }
-
-    /// @notice Pure support function to compare strings
-    /// @param a One string
-    /// @param b Another string
-    /// @return Whether or not the strings are the same or not
-    function areEqualStrings(string memory a, string memory b) internal pure returns (bool) {
-        return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
     }
 }
