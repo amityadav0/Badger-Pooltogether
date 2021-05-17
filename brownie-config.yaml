@@ -1,0 +1,65 @@
+networks:
+  default: development
+  # any settings given here will replace the defaults
+  development:
+    host: http://127.0.0.1
+    gas_price: 0
+    persist: false
+    reverting_tx_gas_limit: 6721975
+    test_rpc:
+        cmd: ganache-cli
+        port: 8545
+        gas_limit: 6721975
+        accounts: 10
+        evm_version: istanbul
+        mnemonic: brownie
+  rinkeby:
+    host: https://rinkeby.infura.io/v3/$WEB3_INFURA_PROJECT_ID
+  mainnet-fork:
+    explorer: https://api.etherscan.io/api
+    cmd: ganache-cli
+    cmd_settings:
+      accounts: 50
+      mnemonic: brownie
+      fork: https://eth-mainnet.alchemyapi.io/v2/$ALCHEMYAPI_TOKEN
+      default_balance: 500 ether
+      chain_id: 1
+  bsc:
+    explorer: https://www.bscscan.com/
+    host: https://bsc-dataseed1.binance.org
+  bsc-fork:
+    id: bsc-fork
+    cmd: ganache-cli
+    host: http://127.0.0.1
+    cmd_settings:
+      timeout: 120
+      accounts: 10
+      evm_version: istanbul
+      fork: bsc
+      gas_limit: 12000000
+      mnemonic: brownie
+      port: 8545
+wallets:
+  from_key: PRIVATE_KEY
+
+
+project_structure:
+  contracts: contracts
+  interfaces: interfaces
+  build: build
+  reports: reports
+  scripts: scripts
+  tests: tests
+
+# automatically fetch contract sources from Etherscan
+autofetch_sources: True
+
+reports:
+  exclude_paths:
+    - contracts/test/Token.sol
+  exclude_contracts:
+    - SafeMathUpgradeable
+    - AccessControlUpgradeable
+    - EnumerableSetUpgradeable
+    - SafeERC20Upgradeable
+    - ERC20Upgradeable

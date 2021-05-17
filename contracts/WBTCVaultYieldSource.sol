@@ -54,6 +54,7 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
         initializer
     {
         require(address(vault) == address(0), "!already initialized");
+        require(address(token) == address(0), "!already initialized");
 
         vault = _vault;
         token = _token;
