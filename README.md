@@ -50,6 +50,10 @@ To deploy yield source:
 brownie run scripts/deploy.js --network NETWORK_NAME
 ```
 
+Note: 
+- To deploy the contract on mainnet and have it working you will need to initialize contract with mainnet address of badger-wbtc-vault and address of wbtc token.
+- Once it is deployed it will be required to add the yield source contract address in badger-wbtc-vault's guestlist.
+
 ## Deployed contract address
 
 Rinkeby Network: [0x512E4aB32aA7aB1Bf8B9DDb5b00B099464ECdF4d](https://rinkeby.etherscan.io/address/0x512e4ab32aa7ab1bf8b9ddb5b00b099464ecdf4d)
