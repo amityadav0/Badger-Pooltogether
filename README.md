@@ -34,7 +34,7 @@ brownie test
 
 ## Setup
 
-You will needs to enviroment variables to deploy on rinkeby network.
+You will need enviroment variables to deploy on rinkeby network.
 
 ```
 export WEB3_INFURA_PROJECT_ID=
