@@ -64,4 +64,4 @@ Rinkeby Network
 - Badger wBTC Vault: [0x8f6A9AAbd9AF782811D3F904a43103c51F77D2bd](https://rinkeby.etherscan.io/address/0x8f6A9AAbd9AF782811D3F904a43103c51F77D2bd)
 - Badger wBTC Vault Yield Source: [0xE9C60903B4dE31D2601D3AC00b966AAAe3eAc077](https://rinkeby.etherscan.io/address/0xE9C60903B4dE31D2601D3AC00b966AAAe3eAc077)
 
-- [Here](https://rinkeby.etherscan.io/address/0xbd5a927be6e8da1faf827562779100ce62ed70e5) is are transactions which shows how a end user can deposit and redeem token from yield source contract.
+- [Here](https://rinkeby.etherscan.io/address/0xbd5a927be6e8da1faf827562779100ce62ed70e5) are transactions which shows how a end user can deposit and redeem token from yield source contract.
