@@ -1,6 +1,6 @@
 # PoolTogether Badger-WBTC-Vault Yield Source
 
-PoolTogether Yield Source that uses [Badger WBTC Vault](https://etherscan.io/address/0x4b92d19c11435614cd49af1b589001b7c08cd4d5) generate yield by depositing the deposit token in any Badger WBTC Vault that accepts that token.
+PoolTogether Yield Source that uses [Badger WBTC Vault](https://etherscan.io/address/0x4b92d19c11435614cd49af1b589001b7c08cd4d5), generates yield by depositing WBTC in Badger-WBTC-Vault.
 
 ## Installation
 
@@ -34,7 +34,7 @@ brownie test
 
 ## Setup
 
-You will needs to enviroment variables to deploy on rinkeby network.
+You will need enviroment variables to deploy on rinkeby network.
 
 ```
 export WEB3_INFURA_PROJECT_ID=
