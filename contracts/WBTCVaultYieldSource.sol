@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.6.12;
 
-import "./interfaces/IYieldSource.sol";
+import "../interfaces/IYieldSource.sol";
 import "./external/ISimpleWrapperGatedUpgradeable.sol";
-import "./external/IwBTC.sol";
+import "../interfaces/IWBTC.sol";
 import "../node_modules/@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import "../node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
@@ -20,12 +20,12 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
     /// @notice Badger wBTC Yearn Vault which manages `token` to generate yield
     ISimpleWrapperGatedUpgradeable public vault;
     /// @dev Deposit Token contract address
-    IwBTC internal token;
+    IWBTC internal token;
     
     /// @notice Emitted when the yield source is initialized
     event YearnSimpleWrapperGatedUpgradeable(
         ISimpleWrapperGatedUpgradeable vault,
-        IwBTC token
+        IWBTC token
     );
 
     /// @notice Emitted when asset tokens are supplied to the yield source
@@ -48,7 +48,7 @@ contract WBTCVaultYieldSource is IYieldSource, ERC20Upgradeable, OwnableUpgradea
     /// @param _token Underlying Token / Deposit Token
     function initialize(
         ISimpleWrapperGatedUpgradeable _vault,
-        IwBTC _token
+        IWBTC _token
     ) 
         public 
         initializer

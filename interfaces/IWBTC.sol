@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.7.0;
 
-interface IwBTC {
+interface IWBTC {
     function decimals() external view returns (uint8);
 
     function allowance(address owner, address spender) external returns (uint256);
