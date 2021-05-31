@@ -18,6 +18,12 @@ Mainnet-Fork end-to-end tests
 
 [here](https://github.com/amityadav0/badger-wbtc-yield-source)
 
+## Implentation References
+
+- Here is the implementations references https://github.com/pooltogether/yield-source-interface#implementations
+
+- https://github.com/pooltogether/pooltogether-yearnv2-yield-source
+
 ## Installation
 
 1. `yarn install`
