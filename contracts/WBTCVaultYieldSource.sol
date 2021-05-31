@@ -10,6 +10,10 @@ import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upg
 import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "../node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
 
+/// Please note: This code is initialized from this file:(all the other work, interfaces, connections and tests are not)
+/// https://github.com/pooltogether/pooltogether-yearnv2-yield-source/blob/master/contracts/yield-source/YearnV2YieldSource.sol
+/// also BAdger-WBTC-Vault is different than yearn vault, so you may need to understand badger-vault first
+/// after that flow tests are added after understanding and then testnet tests and mainnet-fork tests
 /// @title Yield source for a PoolTogether prize pool that generates yield by depositing into Badger Vaults.
 /// @dev This contract inherits from the ERC20 implementation to keep track of users deposits
 /// @notice Yield Source Prize Pools subclasses need to implement this interface so that yield can be generated.
