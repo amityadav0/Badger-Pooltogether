@@ -2,8 +2,9 @@
 # yarn lockfile v1
 
 
-"@CoinSpace/bitcore-lib-dogecoin@github:CoinSpace/bitcore-lib-dogecoin":
+"@CoinSpace/bitcore-lib-dogecoin@CoinSpace/bitcore-lib-dogecoin":
   version "8.1.2"
+  uid cf8b3f663d6f065c12a643d8eb7c9e7b7f516bf1
   resolved "https://codeload.github.com/CoinSpace/bitcore-lib-dogecoin/tar.gz/cf8b3f663d6f065c12a643d8eb7c9e7b7f516bf1"
   dependencies:
     bn.js "=4.11.8"
@@ -2390,8 +2391,9 @@ bitcore-lib-cash@^8.24.2:
     inherits "=2.0.1"
     lodash "^4.17.20"
 
-"bitcore-lib-zcash@github:zcash-hackworks/bitcore-lib-zcash":
+bitcore-lib-zcash@zcash-hackworks/bitcore-lib-zcash:
   version "0.13.19"
+  uid e97ae1dd2e9f14d6076d5e5429c75d8965afa4ab
   resolved "https://codeload.github.com/zcash-hackworks/bitcore-lib-zcash/tar.gz/e97ae1dd2e9f14d6076d5e5429c75d8965afa4ab"
   dependencies:
     bn.js "=2.0.4"
@@ -2885,8 +2887,9 @@ cashaddrjs@^0.3.12:
   dependencies:
     big-integer "1.6.36"
 
-"chai-bignumber@github:ren-forks/chai-bignumber#afa6f46dcbef0b7e622dc27b9b3354fc67afafbc":
+chai-bignumber@ren-forks/chai-bignumber#afa6f46dcbef0b7e622dc27b9b3354fc67afafbc:
   version "2.0.2"
+  uid afa6f46dcbef0b7e622dc27b9b3354fc67afafbc
   resolved "https://codeload.github.com/ren-forks/chai-bignumber/tar.gz/afa6f46dcbef0b7e622dc27b9b3354fc67afafbc"
 
 chai@^4.2.0:
@@ -7541,9 +7544,9 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
 normalize-url@^4.1.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
-  integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.1.tgz#0dd90cf1288ee1d1313b87081c9a5932ee48518a"
+  integrity sha512-9UZCFRHQdNrfTpGg8+1INIg93B6zE0aXMVFkw1WFwvO4SlZywU6aLg5Of0Ap/PgcbSw4LNxvMWXMeugwMCX0AA==
 
 npm-run-path@^2.0.0:
   version "2.0.2"
